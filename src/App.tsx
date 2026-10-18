@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowDownRight, ArrowUpRight, Check, Code2, Copy, Github, Linkedin, Menu, Moon, ShieldCheck, Sun, X, Layers, Radio, GitBranch } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import { Button } from "./components/ui/button";
 import { RequestFlow } from "./components/request-flow";
 import { CONTENT } from "./lib/content";
@@ -132,6 +133,7 @@ export default function App() {
         <section id="contact" className="container contact-section" aria-labelledby="contact-heading"><span className="section-label"><span>04 /</span> START A CONVERSATION</span><div className="contact-heading-row"><h2 id="contact-heading">Let’s build<br />something solid<span className="heading-period">.</span></h2><ArrowUpRight className="contact-arrow" strokeWidth={1} /></div><div className="contact-bottom"><div><p>Have a backend role or an engineering opportunity in mind?</p><div className="email-row"><a href={`mailto:${CONTENT.email}`}>{CONTENT.email}</a><Button variant="ghost" size="icon" onClick={copyEmail} aria-label="Copy email address" title="Copy email address">{copyState === "copied" ? <Check /> : <Copy />}</Button></div><span role="status" className="copy-status">{copyState === "copied" ? "Email copied to clipboard." : copyState === "error" ? "Couldn’t copy. Select the email, or open it to get in touch." : ""}</span></div><div className="social-links"><a href={CONTENT.links.github} target="_blank" rel="noopener noreferrer"><Github size={17} />GitHub<ArrowUpRight size={16} /></a><a href={CONTENT.links.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={17} />LinkedIn<ArrowUpRight size={16} /></a><a href={CONTENT.links.leetcode} target="_blank" rel="noopener noreferrer"><Code2 size={17} />LeetCode<ArrowUpRight size={16} /></a></div></div></section>
       </main>
       <footer className="site-footer"><div className="container footer-inner"><a href="#main" className="wordmark" aria-label="Back to top">pr<span className="brand-dot">.</span></a><span>© {new Date().getFullYear()} {CONTENT.name}</span><span className="mono footer-note">THOUGHTFUL CODE. CLEAR INTENT.</span><a href="#main">Back to top <ArrowUpRight size={15} /></a></div></footer>
+      <Analytics />
     </div>
   );
 }
